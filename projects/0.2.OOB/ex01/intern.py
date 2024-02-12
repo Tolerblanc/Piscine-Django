@@ -8,10 +8,6 @@ class Intern():
         return self.Name
 
     class Coffee():
-        def __init__(self, creator):
-            self.creator = creator
-            print(f'Intern {creator} made coffee')
-
         def __str__(self):
             return "This is the worst coffee you ever tasted."
 
@@ -19,4 +15,4 @@ class Intern():
         raise Exception("I’m just an intern, I can’t do that...")
 
     def make_coffee(self):
-        return self.Coffee(self)
+        return self.Coffee()

@@ -8,10 +8,10 @@ def test_intern():
     assert str(mark) == "Mark"
     assert no_name.make_coffee().__str__() == "This is the worst coffee you ever tasted."
     assert mark.make_coffee().__str__() == "This is the worst coffee you ever tasted."
-    # assert id(no_name.make_coffee()) != id(mark.make_coffee())
-    print(id(no_name.make_coffee()))
-    print(id(mark.make_coffee()))
-    # TODO : 만든 커피가 다른 객체여야 하는데...?
+    assert id(no_name.make_coffee()) == id(mark.make_coffee())
+    coffeeA = no_name.make_coffee()
+    coffeeB = mark.make_coffee()
+    assert id(coffeeA) != id(coffeeB)
     try:
         no_name.work()
         assert False
