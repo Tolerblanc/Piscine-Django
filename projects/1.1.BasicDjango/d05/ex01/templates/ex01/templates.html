@@ -1,0 +1,37 @@
+{% extends 'ex01/base.html' %}
+{% load static %}
+
+{% block title %}Ex01: Template engine.{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'static/style2.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<h2>Django 템플릿 엔진</h2>
+<p>Django의 템플릿 엔진은 HTML과 Django 템플릿 언어(DTL)를 결합하여 동적 웹 페이지를 생성합니다.</p>
+
+<h3>템플릿의 기본 구조</h3>
+<p>템플릿은 HTML 코드에 Django 템플릿 태그와 변수를 포함할 수 있습니다. 태그는 {{ '{%' }} 와 {{ '%}' }}  사이에, 변수는  {{ '{{' }}  와 {{ ''}}' }} 사이에 위치합니다.</p>
+
+<h3>변수 사용</h3>
+<p>템플릿에서 변수를 사용하면 뷰에서 전달한 데이터를 HTML 페이지에 삽입할 수 있습니다. 예:  <code>{{ variable_name }}</code></p>
+
+<h3>태그와 필터</h3>
+<p>태그는 템플릿 내에서 로직을 실행합니다. 예:  {{ '{%' }} for item in list %} ... {{ '{%' }} endfor  {{ '%}' }}  </code>. 필터는 변수의 출력을 수정합니다. 예: {{ '{{' }} name|lower {{ ''}}' }}</p>
+
+<h3>템플릿 상속</h3>
+<p>템플릿 상속을 사용하면 공통 요소를 재사용할 수 있어 코드 중복을 줄일 수 있습니다.  {{ '{%' }} extends 'base.html'  {{ '%}' }}  </code>태그를 사용하여 기본 템플릿을 상속받을 수 있습니다.</p>
+
+<h3>템플릿에서 사용하는 Django 템플릿 언어의 기능</h3>
+<ul>
+    <li>블록:  {{ '{%' }} block block_name  {{ '%}' }} ... {{ '{%' }} endblock {{ '%}' }} </code>을 사용하여 템플릿에서 오버라이드 가능한 섹션을 정의할 수 있습니다.</li>
+    <li>루프:  {{ '{%' }} for item in list  {{ '%}' }} ... {{ '{%' }} endfor {{ '%}' }} </code>을 사용하여 리스트의 항목을 반복하여 표시할 수 있습니다.</li>
+    <li>조건문:  {{ '{%' }} if condition  {{ '%}' }} ... {{ '{%' }} endif {{ '%}' }} </code>을 사용하여 조건에 따라 다른 HTML 코드를 표시할 수 있습니다.</li>
+    <li>템플릿 필터: {{ '{{' }} variable|filter {{ ''}}' }}를 사용하여 출력을 포맷할 수 있습니다. 예를 들어, 대문자로 변환하거나 날짜 형식을 변경할 수 있습니다.</li>
+</ul>
+
+<p>이러한 기능을 사용하여, Django에서는 동적 콘텐츠를 포함하는 유연하고 강력한 웹 페이지를 쉽게 생성할 수 있습니다.</p>
+
+{% endblock %}
